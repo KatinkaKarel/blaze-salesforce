@@ -9,7 +9,7 @@ describe('NewCustomer > ', function () {
 
 
     var usernaam = "niek.nederland.eerste.lijn@unamic.com.tst";
-    var pasword = "Platina2016";
+    var pasword = "Platina2016!";
     var a = "scc_widget_TRC_Search_button";
     var zipcode = element(by.xpath("//html/body/form/div[1]/span[2]/div/div/div/div/div[2]/div[1]/div[2]/table/tbody/tr[2]/td[2]"));
 
