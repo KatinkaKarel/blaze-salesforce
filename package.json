@@ -1,0 +1,32 @@
+ {
+"name": "nl-checkout",
+"version": "0.0.1",
+"devDependencies": {
+"async": "^0.9.0",
+"browserstacktunnel-wrapper": "^1.3.1",
+"grunt": "0.4.5",
+"grunt-contrib-clean": "0.5.0",
+"grunt-contrib-symlink": "0.3.0",
+"grunt-contrib-watch": "0.6.1",
+"grunt-eslint": "^16.0.0",
+"grunt-plato": "1.3.0",
+"grunt-protractor-runner": "2.1.0",
+"grunt-selenium-webdriver-phantom": "1.0.4",
+"jasmine-reporters": "1.0.1",
+"load-grunt-tasks": "0.1.0",
+"minijasminenode": "1.1.1",
+"protractor": "3.0.0",
+"protractor-html-screenshot-reporter": "0.0.12",
+"q": "^1.4.1",
+"ramda": "^0.11.0",
+"request": "2.37.0",
+"time-grunt": "0.1.0",
+"require-all": "1.1.0"
+},
+"scripts": {
+"install": "./node_modules/protractor/bin/webdriver-manager update",
+"local": "grunt local",
+"devci_local": "grunt devci_local",
+"devci_browserstack": "grunt devci_browserstack"
+}
+}
