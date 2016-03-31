@@ -2,67 +2,72 @@
  * Created by kkarel on 23-12-2015.
  */
 
+/*
+ password : 'Platinum2016!'
+ password acc : 'Platina2016!'
 
-/* password : 'Platinum2016'
- BE 1e lijn rstegenhuis@unamic.com.dev
- NL 1e lijn abarbu@unamic.com.dev
- NL 2e lijn eschoenman@unamic.com.dev
- NL HR		dlodewijk@unamic.com.dev
- NL MAN		greetje.hanekamp@xerox.com.dev
+ BE 1e lijn bart.belgie.eerste.lijn@unamic.com.tst
+ BE 2e lijn bernadette.belgie.tweede.lijn@unamic.com.tst
+ NL 1e lijn niek.nederland.eerste.lijn@unamic.com.tst
+ NL 2e lijn nadine.nederland.tweede.lijn@unamic.com.tst
+ NL HR		henriette.hr@unamic.com.tst
+ NL MAN		marina.manager@xerox.com.tst
+ BE MAN		mark.manager@xerox.com.tst
  */
+
 
 describe('Authenticatie > ', function () {
 
 
+    var authenticationPage=require(process.cwd() + '/page_objects/authentication-page.js');
+
     it('Open sf login and logout', function () {
 
-    var usernaam = "kkarel@wehkamp.nl.dev";
-    var pasword = "Femke2810";
-
-    browser.get("/");
-
-    element(by.id('username')).clear();
-    element(by.id('username')).sendKeys(usernaam);
-    element(by.id('password')).clear();
-    element(by.id('password')).sendKeys(pasword);
-    element(by.id('Login')).click();
-
-    //expect($('#sdHeaderContent').waitReady()).toBeTruthy();
-        element(by.id('userNav')).click();
-        //expect($('.mbrMenuItems').waitReady()).toBeTruthy();
-        element(by.id('app_logout')).click();
-
-        browser.sleep(3000);
-});
+        it('Inloggen 2e lijn', function () {
+            authenticationPage.login ("nadine.nederland.tweede.lijn@unamic.com.tst", "Platinum2016!");
+        });
 
 
-    it('Open sf login logout and login again', function () {
+        /*
+         it('Uitloggen', function () {
+         authenticationPage.logout ();
+         });
 
-        var usernaam1 = "kkarel@wehkamp.nl.dev";
-        var pasword1 = "Femke2810";
-        var usernaam2 = "greetje.hanekamp@xerox.com.dev";
-        var pasword2 = "Platinum2016";
-        browser.get("/");
+         //expect($('#sdHeaderContent').waitReady()).toBeTruthy();
+         element(by.id('userNav')).click();
+         //expect($('.mbrMenuItems').waitReady()).toBeTruthy();
+         element(by.id('app_logout')).click();
 
-        element(by.id('username')).clear();
-        element(by.id('username')).sendKeys(usernaam1);
-        element(by.id('password')).clear();
-        element(by.id('password')).sendKeys(pasword1);
-        element(by.id('Login')).click();
 
-       // expect($('#sdHeaderContent').waitReady()).toBeTruthy();
-        element(by.id('userNav')).click();
-       // expect($('.mbrMenuItems').waitReady()).toBeTruthy();
-        element(by.id('app_logout')).click();
+         });
 
-        element(by.id('username')).clear();
-        element(by.id('username')).sendKeys(usernaam2);
-        element(by.id('password')).clear();
-        element(by.id('password')).sendKeys(pasword2);
-        element(by.id('Login')).click();
+         /*
+         it('Open sf login logout and login again', function () {
+
+
+         it('Inloggen eerste keer', function () {
+         authenticationPage.login ("niek.nederland.eerste.lijn@unamic.com.tst", "Platinum2016!");
+         });
+
+
+         it('Uitloggen', function () {
+         authenticationPage.logout ();
+         });
+
+
+         // expect($('#sdHeaderContent').waitReady()).toBeTruthy();
+         element(by.id('userNav')).click();
+         // expect($('.mbrMenuItems').waitReady()).toBeTruthy();
+         element(by.id('app_logout')).click();
+
+         it('Inloggen tweede keer', function () {
+         authenticationPage.login ("henriette.hr@unamic.com.tst", "Platinum2016!");
+         });
+         */
+
     });
-
 });
+
 
 
 

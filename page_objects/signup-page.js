@@ -1,7 +1,11 @@
 var signupPage = function () {
 
-	var customerData = require(process.cwd() + '/data/customer-data.js');
+
+	var authenticationPage = require(process.cwd() + '/page_objects/authentication-page.js');
 	var configurationPage = require(process.cwd() + '/page_objects/configuration-page.js');
+
+	var EC = protractor.ExpectedConditions;
+
 	
 	this.getRandomAddress = function () {
 		return customerData.getRandomAddress();

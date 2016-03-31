@@ -1,25 +1,30 @@
 var configurationPage = function () {
 
-	this.getWebsiteUrl = function() {
-		return browser.params.environments[browser.params.environment].website_url;
+
+	var authenticationPage = require(process.cwd() + '/page_objects/authentication-page.js');
+	var signupPage = require(process.cwd() + '/page_objects/signup-page.js');
+
+	var EC = protractor.ExpectedConditions;
+
+
+	this.closetabs = function () {
+		return closetabs1();
 	};
 
-	this.getSalesforseLoginUsername = function () {
-		return browser.params.environments[browser.params.environment].salesforse_login.username;
-	};
-	
-	this.getSalesforseLoginPassword = function () {
-		return browser.params.environments[browser.params.environment].salesforse_login.password;
-	};
+	function closetabs1() {
+		
+		browser.driver.sleep(3000);
+		
+		element.all(by.xpath('//div[@class="x-tab-tabmenu-right"]')).get(0).click();
 
-	this.getSalesforseLoginUrl = function() {
-		return browser.params.environments[browser.params.environment].salesforse_login.url;
-	};
+		browser.driver.sleep(3000);
 
-	this.getCurrentEnvironment = function() {
-		return browser.params.environment;
+
+		element(by.xpath('//span[contains(text(),"sluiten")]')).click();
+
+		
+		return;
 	};
-	
 };
 
 module.exports = new configurationPage();

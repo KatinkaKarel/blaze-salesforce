@@ -70,7 +70,7 @@ exports.config = {
 	},
 		login : {
 			user : 'niek.nederland.eerste.lijn@unamic.com.tst',
-			password : 'Platina2016'
+			password : 'Platina2016!'
 		}
 
 	},

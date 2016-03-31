@@ -2,28 +2,34 @@
  * Created by kkarel on 23-12-2015.
  */
 
+var authenticationPage = require(process.cwd() + '/page_objects/authentication-page.js');
+var configurationPage = require(process.cwd() + '/page_objects/configuration-page.js');
+var signupPage = require(process.cwd() + '/page_objects/signup-page.js');
+
 var EC = protractor.ExpectedConditions;
-//var driver = ptor.driver;
+
 
 describe('NewCustomer > ', function () {
 
-
-    var usernaam = "niek.nederland.eerste.lijn@unamic.com.tst";
-    var pasword = "Platina2016!";
     var a = "scc_widget_TRC_Search_button";
     var zipcode = element(by.xpath("//html/body/form/div[1]/span[2]/div/div/div/div/div[2]/div[1]/div[2]/table/tbody/tr[2]/td[2]"));
 
     it('New customer', function () {
 
-        browser.get("/");
+        authenticationPage.login("nadine.nederland.tweede.lijn@unamic.com.tst", "Platinum2016!");
 
-        element(by.id('username')).clear();
-        element(by.id('username')).sendKeys(usernaam);
-        element(by.id('password')).clear();
-        element(by.id('password')).sendKeys(pasword);
-    element(by.id('Login')).click();
+        configurationPage.closetabs();
 
+        /*
         browser.driver.sleep(3000);
+
+       element.all(by.xpath('//div[@class="x-tab-tabmenu-right"]')).get(0).click();
+
+       browser.driver.sleep(3000);
+
+
+        element(by.xpath('//span[contains(text(),"sluiten")]')).click();
+         */
 
         EC.presenceOf(element(by.xpath("//table[@id='scc_widget_TRC_Search_button']/tbody/tr[2]/td[2]/em/button")));
 
@@ -48,7 +54,7 @@ describe('NewCustomer > ', function () {
 
         browser.driver.sleep(3000);
 
-  browser.driver.switchTo().frame(1);
+        browser.driver.switchTo().frame(1);
 
         EC.presenceOf(element(by.xpath('//*[@id="j_id0:form:j_id37:j_id50:new_customer"]')));
 
@@ -59,7 +65,7 @@ describe('NewCustomer > ', function () {
 
         browser.driver.switchTo().frame(2);
 
-       EC.presenceOf(element(by.xpath('//*[@id="j_id0:form:newCustomerDetails:j_id53:j_id54"]')));
+        EC.presenceOf(element(by.xpath('//*[@id="j_id0:form:newCustomerDetails:j_id53:j_id54"]')));
 
         element(by.xpath('//*[@id="j_id0:form:newCustomerDetails:j_id148:submitButton"]')).click();
 
@@ -100,13 +106,13 @@ describe('NewCustomer > ', function () {
       element(by.xpath('//*[@id="btnEmailSentOk"]')).click();
 
 
-    browser.driver.sleep(15000);
+    browser.driver.sleep(5000);
 
 
 });
 
 
-    describe('NewCustomer > check error message', function () {
+//    describe('NewCustomer > check error message', function () {
 
 
 });

@@ -1,44 +1,61 @@
 var authenticationPage = function () {
+	
+	var configurationPage = require(process.cwd() + '/page_objects/configuration-page.js');
 	var signupPage = require(process.cwd() + '/page_objects/signup-page.js');
-	var deferred = protractor.promise.defer();
+
+	var EC = protractor.ExpectedConditions;
+
 	/**
 	 * Logs in to the website
 	 */
-	this.loginWebsite = function (usernaam, pasword) {
 
-		function login(url, usernaam, pasword) {
+	/*
+	 password tst : 'Platinum2016!'
+	 password acc : 'Platina2016!'
 
-			var deferred = protractor.promise.defer();
+	 BE 1e lijn bart.belgie.eerste.lijn@unamic.com.tst
+	 BE 2e lijn bernadette.belgie.tweede.lijn@unamic.com.tst
+	 NL 1e lijn niek.nederland.eerste.lijn@unamic.com.tst
+	 NL 2e lijn nadine.nederland.tweede.lijn@unamic.com.tst
+	 NL HR		henriette.hr@unamic.com.tst
+	 NL MAN		marina.manager@xerox.com.tst
+	 BE MAN		mark.manager@xerox.com.tst
+	 */
+	
+	
+	this.login = function (username, password) {
 
-			browser.get(url).then(function () {
+		return _login ("/", username, password) ;
+	};
 
-				var g = element(by.id('username'));
 
-				g.click();
-				g.clear();
-				g.sendKeys(usernaam);
+	function _login(url, username, password) {
 
-				var p = element(by.id('password'));
+		var deferred=protractor.promise.defer();
 
-				p.click();
-				p.clear();
-				p.sendKeys(pasword);
+		browser.get(url).then(function()
+		{
 
-				element(by.id('Login')).click();
-				/*
-				 element(by.css("p.error-box")).getText().then(function onSucces(text) {
-				 // Als er een error-box verschijnt, is het inloggen fout gegaan
-				 deferred.reject('Fout bij inloggen: ' + text + ').');
-				 }, function () {
-				 deferred.fulfill(true)
-				 });
-				 */
-			});
+			var g=element(by.id('username'));
 
-			return deferred.promise
-		};
+			g.clear();
+			g.sendKeys(username);
+
+			var p=element(by.id('password'));
+
+			p.clear();
+			p.sendKeys(password);
+
+
+			element(by.id('Login')).click();
+
+
+		});
+
+return deferred.promise
 
 	};
+
 
 	/**
 	 * Logs out the current user
@@ -51,10 +68,10 @@ var authenticationPage = function () {
 
 	function _logout() {
 
-		// expect($('#sdHeaderContent').waitReady()).toBeTruthy();
-		element(by.id('userNav')).click();
-		// expect($('.mbrMenuItems').waitReady()).toBeTruthy();
-		element(by.id('app_logout')).click();
+
+ element(by.id('userNav')).click();
+
+ element(by.id('app_logout')).click();
 
 
 				return;
@@ -63,58 +80,11 @@ var authenticationPage = function () {
 
 
 
-	this.checkLogin = function (gebruikersnaam, createLoginAccount) {
 
-		var username = gebruikersnaam;
-		var password = "test1234";
-		var address = signupPage.getRandomAddress();
-
-		browser.get('/W3/Inloggen/Identificatie/Login/Index');
-
-		element(by.id('Gebruikersnaam')).clear();
-		element(by.id('Gebruikersnaam')).sendKeys(username);
-		element(by.id('Wachtwoord')).clear();
-		element(by.id('Wachtwoord')).sendKeys(password);
-		element(by.id('submitButton')).click();
-
-		element.all(by.css("p.error-box")).count().then(function (count) {
-
-			if (count == 0) {
-				deferred.fulfill(false); // Wordt niet getoond
-			} else {
-				deferred.fulfill(true); // Wordt wel getoond
-
-				if (createLoginAccount) {
-
-					browser.get('/W3/AccountAanmaken/Identificatie/Login/Index');
-					element(by.id('doesNotHasAccount')).click();
-					
-					element(by.id('Gebruikersnaam')).sendKeys(username);
-					element(by.id('submitButton')).click();
-
-					element(by.id('Voornaam')).sendKeys('Pieter');
-					element(by.id('Achternaam')).sendKeys('de Jong');
-					element.all(by.css('div.formfield.formfield-radio label')).get(1).click();
-					element(by.id('Geboortedatum_Day')).sendKeys('9');
-					element(by.id('Geboortedatum_Month')).sendKeys('Oktober');
-					element(by.id('Geboortedatum_Year')).sendKeys('1981');
-					element(by.id('Adres_Postcode')).sendKeys(address.postcode);
-					element(by.id('Adres_Huisnummer')).sendKeys(address.huisnummer);
-					element(by.id('Telefoonnummer')).sendKeys('0612348765');
-					element(by.id('Wachtwoord')).sendKeys(password);
-					element(by.id('BevestigWachtwoord')).sendKeys(password);
-					element(by.id('volgendestap')).click();
-				}
-
-			}
-
-		});
-		return deferred.promise;
-	};
 
 
 };
 
-		
-	
+
+
 module.exports = new authenticationPage();

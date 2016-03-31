@@ -6,18 +6,15 @@
  * Created by kkarel on 23-12-2015.
  */
 
+
+var authenticationPage = require(process.cwd() + '/page_objects/authentication-page.js');
+var configurationPage = require(process.cwd() + '/page_objects/configuration-page.js');
+var signupPage = require(process.cwd() + '/page_objects/signup-page.js');
+
 var EC = protractor.ExpectedConditions;
 
-
 describe('NewCustomer > ', function () {
-
-    /*
-     BE 1e lijn  rstegenhuis@unamic.com.dev
-     NL 1e lijn 	abarbu@unamic.com.dev
-     NL 2e lijn 	eschoenman@unamic.com.dev
-     NL HR		dlodewijk@unamic.com.dev
-     NL MAN		greetje.hanekamp@xerox.com.dev
-     */
+    
 
     var usernaam = "kkarel@wehkamp.nl.tst";
     var pasword = "Femke2110";
