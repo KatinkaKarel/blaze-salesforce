@@ -58,6 +58,9 @@ describe('Authenticatie > ', function () {
 
 		authenticationPage.logout ();
 
+		authenticationPage.login ("bernadette.belgie.tweede.lijn@unamic.com.tst", "Platinum2016!");
+
+
 	});
 
 

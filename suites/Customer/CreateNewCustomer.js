@@ -14,22 +14,12 @@ describe('NewCustomer > ', function () {
     var a = "scc_widget_TRC_Search_button";
     var zipcode = element(by.xpath("//html/body/form/div[1]/span[2]/div/div/div/div/div[2]/div[1]/div[2]/table/tbody/tr[2]/td[2]"));
 
-    it('New customer', function () {
+    xit('New customer', function () {
 
         authenticationPage.login("nadine.nederland.tweede.lijn@unamic.com.tst", "Platinum2016!");
 
         configurationPage.closetabs();
 
-        /*
-        browser.driver.sleep(3000);
-
-       element.all(by.xpath('//div[@class="x-tab-tabmenu-right"]')).get(0).click();
-
-       browser.driver.sleep(3000);
-
-
-        element(by.xpath('//span[contains(text(),"sluiten")]')).click();
-         */
 
         EC.presenceOf(element(by.xpath("//table[@id='scc_widget_TRC_Search_button']/tbody/tr[2]/td[2]/em/button")));
 
@@ -112,8 +102,12 @@ describe('NewCustomer > ', function () {
 });
 
 
-//    describe('NewCustomer > check error message', function () {
+   it('NewCustomer > check error message', function () {
 
+    authenticationPage.login("nadine.nederland.tweede.lijn@unamic.com.tst", "Platinum2016!");
+
+    configurationPage.closetabs();
+});
 
 });
 

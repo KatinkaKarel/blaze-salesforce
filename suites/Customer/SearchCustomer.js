@@ -23,13 +23,7 @@ describe('NewCustomer > ', function () {
 
     it('Search customer', function () {
 
-        browser.get("/");
-
-        element(by.id('username')).clear();
-        element(by.id('username')).sendKeys(usernaam);
-        element(by.id('password')).clear();
-        element(by.id('password')).sendKeys(pasword);
-        element(by.id('Login')).click();
+        authenticationPage.login("nadine.nederland.tweede.lijn@unamic.com.tst", "Platinum2016!");
 
         element(by.xpath("//table[@id='scc_widget_TRC_Search_button']/tbody/tr[2]/td[2]/em/button")).click();
 
