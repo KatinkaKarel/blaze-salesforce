@@ -8,7 +8,7 @@ describe('Authenticatie > ', function () {
 	
 	
 /*
-		password : 'Platinum2016!'
+		password tst: 'Platinum2016!'
 		password acc : 'Platina2016!'
 
  BE 1e lijn bart.belgie.eerste.lijn@unamic.com.tst

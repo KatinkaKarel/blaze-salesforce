@@ -13,17 +13,16 @@ var signupPage = require(process.cwd() + '/page_objects/signup-page.js');
 
 var EC = protractor.ExpectedConditions;
 
-describe('NewCustomer > ', function () {
+describe('Search > ', function () {
     
-
-    var usernaam = "kkarel@wehkamp.nl.tst";
-    var pasword = "Femke2110";
 
     var zipcode = element(by.xpath("//html/body/form/div[1]/span[2]/div/div/div/div/div[2]/div[1]/div[2]/table/tbody/tr[2]/td[2]"));
 
     it('Search customer', function () {
 
         authenticationPage.login("nadine.nederland.tweede.lijn@unamic.com.tst", "Platinum2016!");
+
+        configurationPage.closetabs();
 
         element(by.xpath("//table[@id='scc_widget_TRC_Search_button']/tbody/tr[2]/td[2]/em/button")).click();
 
@@ -40,21 +39,14 @@ describe('NewCustomer > ', function () {
 
         browser.driver.sleep(3000);
 
-        //expect(element(by.xpath("//html/body/form/div[1]/span[2]/div/div/div/div/div[2]/table/tbody/tr[2]/td[2]"))).toContain("6717TA");
 
-        EC.textToBePresentInElement(element(by.xpath("//html/body/form/div[1]/span[2]/div/div/div/div/div[2]/table/tbody/tr[2]/td[2]")), "6517TA");
+        browser.switchTo().frame(0);
 
-
-        //expect(element(by.xpath("//html/body/form/div[1]/span[2]/div/div/div/div/div[2]/table/tbody/tr[2]/td[2]"))).toContain("6717TA");
-
-        // expect(zipcode.getText()).toEqual("6717TA");
+        
+        EC.textToBePresentInElement(element(by.xpath("/html/body/form/div[1]/span[2]/div/div/div/div/div[2]/div[1]/div[2]/table/tbody/tr[2]/td[2]")), "6417TA");
 
 
-        browser.driver.switchTo().defaultContent();
-
-        element(by.xpath('//*[@id="phSearchInput"]')).click();
-
-        element(by.xpath('//*[@id="phSearchInput"]')).sendKeys('Karel');
+        expect(element(by.xpath('//*[@id="j_id0:form:consoleAccountDetails:j_id139"]/div[2]/table/tbody/tr[2]/td[2][contains(text,"6717TA")]')).toBeTruthy);
 
         browser.driver.sleep(3000);
 

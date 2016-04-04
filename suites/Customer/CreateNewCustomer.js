@@ -14,7 +14,7 @@ describe('NewCustomer > ', function () {
     var a = "scc_widget_TRC_Search_button";
     var zipcode = element(by.xpath("//html/body/form/div[1]/span[2]/div/div/div/div/div[2]/div[1]/div[2]/table/tbody/tr[2]/td[2]"));
 
-    xit('New customer', function () {
+    it('New customer', function () {
 
         authenticationPage.login("nadine.nederland.tweede.lijn@unamic.com.tst", "Platinum2016!");
 
@@ -102,7 +102,7 @@ describe('NewCustomer > ', function () {
 });
 
 
-   it('NewCustomer > check error message', function () {
+   xit('NewCustomer > check error message', function () {
 
     authenticationPage.login("nadine.nederland.tweede.lijn@unamic.com.tst", "Platinum2016!");
 

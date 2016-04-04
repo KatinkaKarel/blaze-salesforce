@@ -16,6 +16,7 @@ Aanmaken nieuwe klant
 opzoeken klant
 
 
+
 TO DO:
     Klant:
 
@@ -23,24 +24,44 @@ TO DO:
 wijzigen
 nieuwe klant
 
+
 adres blokkeren
 adres blokkade opheffen
 mag geen klantnummer toe(kunnen)voegen
 
-alles muteren
+
 5 klantstatussen wijzigen
 
 adres blokkeren
 wijzigingen in Iris doorvoeren
 
+iris openen details en bestellingen
+
 
 edit 2e lijn cases
 
+Acties:
+    bezorgafspraken
+retour bezorgafspraken
 
-cases:
+brieven maken
+
+artikelinformatie
+artikelklacht melden
+
+
+Cases:
     wijzigen eigenaar
 in behandeling nemen
-teowijzen aan
+toewijzen aan
 escaleren
 opmerking toevoegen
+
+gewoon wijzigen klantgegevens / notificaties /
+controle foutmeldingen (in tab Create New Customer)
+
+
+
+
+
 
